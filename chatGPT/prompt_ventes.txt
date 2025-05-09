@@ -1,0 +1,68 @@
+Tâche à exécuter : 
+***
+	prépare un fichier SQLITE téléchargeable à partir du fichier Excel "DONNEES_jour_ventes.xlsx".
+***
+Rôle :	
+***
+	agis en tant qu'expert en SQL.
+***	
+Contexte :
+***
+	Kwilu Briques souhaite rassembler les données brutes de ventes de ses produits dans une base de donnée SQL.
+	La structure de la base de données est la suivante :
+		Table "BON_COMMANDE"
+			colonne "ID_BC" : (TEXT) : PRIMARY KEY
+			 (reprend le numéro du bon de commande) 
+			colonne "Date_BC" (TEXT)
+			 (reprend la date de la commande)
+			colonne "ID_CLIENT" (TEXT)
+			 (reprend l'ID du client)
+			colonne "Nom_Client" (TEXT)
+			 (reprend le nom du client)
+			colonne "Conditions_Paiement" (TEXT)
+			 (reprend les conditions de paiement pour le bon de commande)
+			colonne "TVA_%" (INTEGER)
+			 (reprend la TVA appliquée)
+			colonne "Remise_Totale_TVAC" (INTEGER)
+			 (reprend le montant total de la commande après remise et tva comprise)
+			colonne "Remarques" (TEXT)
+			 (reprend des remarques sur le bon de commande)
+			 
+		Table "DETAILS_BC"
+			colonne "ID_DETAIL_BC" : (TEXT) : PRIMARY KEY
+			colonne "ID_BC" (TEXT) : FOREIGN KEY
+				(ID du bon de commande)
+			colonne "ID_TYPE_BLOC" (TEXT)
+				(type de bloc commandé)
+			colonne "Qte_Commandée" (NUMERIC)
+				(quantité de blocs commandés)
+			colonne "Prix_Unitaire_HTVA" (NUMERIC)
+				(prix unitaire du bloc HTVA)
+			colonne "Prix_Unitaire_Net_HTVA" (NUMERIC)
+				(prix unitaire du bloc HTVA et avec remise)
+				
+		Table "FACTURE"
+			colonne "ID_FACTURE" : (TEXT) : PRIMARY KEY
+				(reprend l'ID de la facture)
+			colonne "ID_BC" : (TEXT) : FOREIGN KEY
+				(reprend l'ID du bon de commande lié à la facture)
+			colonne "Date_Facture" : (TEXT)
+				(reprend la date de la facture)
+			colonne "Montant_TVAC" : (NUMERIC)
+				(reprend le montant TVAC de la facture avec remise)
+			colonne "Mode_Paiement" : (TEXT)
+				(reprend le mode de paiement)
+			colonne "Statut_Paiement" : (TEXT)
+				(reprend le statut du paiement)
+			colonne "Observation" (TEXT)
+				(reprend des remarques sur la facture)
+		
+		Table "DETAILS_FACTURES"
+			colonne "ID_DETAIL_FACTURE"  : (TEXT) : PRIMARY KEY
+			colonne "ID_FACTURE" : (TEXT) : FOREIGN KEY
+				(reprend l'ID de la facture)
+			colonne "ID_BL" : (TEXT) : FOREIGN KEY
+				(reprend l'ID du  bon de livraison)
+			colonne "Montant HTVA" (NUMERIC)
+				(reprend le montant HTVA après remise)
+	***
