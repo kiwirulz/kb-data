@@ -39,7 +39,7 @@ else:
     conn = sqlite3.connect(DB_PATH)
 
     # Afficher les tables disponibles
-    st.write("Tables disponibles dans la base :")
+    st.write("Tables disponibles dans la base :", os.listdir("."))
     tables = pd.read_sql("SELECT name FROM sqlite_master WHERE type='table';", conn)
     st.dataframe(tables)
     
