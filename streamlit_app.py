@@ -35,7 +35,7 @@ if page == "🏠 Accueil":
 
 else:
     # --- Connexion à la base de données ---
-    DB_PATH =  "/Users/christophecote/Documents/DATA ANALYSIS/ventes/Donnees_JOUR_ventes.sqlite"
+    DB_PATH =  "Donnees_JOUR_ventes.sqlite"
     conn = sqlite3.connect(DB_PATH)
 
     # --- Titre ---
