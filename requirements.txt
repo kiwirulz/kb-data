@@ -4,3 +4,4 @@ matplotlib
 openpyxl
 Pillow
 numpy
+XlsxWriter
