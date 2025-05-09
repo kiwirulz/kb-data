@@ -6,8 +6,28 @@ import sqlite3
 import matplotlib.pyplot as plt
 from io import BytesIO
 import os
-st.write("Fichiers disponibles dans le dossier courant :", os.listdir("."))
 
+# Recréer la base SQLite depuis l'Excel
+st.write("Création de la base SQLite depuis l'Excel...")
+
+# Charger l'Excel
+excel_file = "DONNEES_jour_ventes.xlsx"
+xl = pd.ExcelFile(excel_file)
+
+# Créer la base SQLite
+sqlite_file = "DONNEES_jour_ventes.sqlite"
+conn = sqlite3.connect(sqlite_file)
+
+# Importer toutes les feuilles comme tables SQLite
+for sheet in xl.sheet_names:
+    df = xl.parse(sheet)
+    df.to_sql(sheet, conn, if_exists="replace", index=False)
+
+# Vérifier les tables créées
+tables = pd.read_sql("SELECT name FROM sqlite_master WHERE type='table';", conn)
+st.write("Tables créées :", tables)
+
+# La base est maintenant prête à être utilisée
 
 # Appliquer du style CSS
 st.markdown("""
