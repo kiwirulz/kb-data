@@ -40,7 +40,7 @@ else:
 
     # Afficher les tables disponibles
     st.write("Tables disponibles dans la base :")
-    tables = pd.read_sql(\"SELECT name FROM sqlite_master WHERE type='table';\", conn)
+    tables = pd.read_sql("SELECT name FROM sqlite_master WHERE type='table';", conn)
     st.dataframe(tables)
     
     # --- Titre ---
