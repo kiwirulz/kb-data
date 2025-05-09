@@ -5,6 +5,9 @@ import pandas as pd
 import sqlite3
 import matplotlib.pyplot as plt
 from io import BytesIO
+import os
+st.write("Fichiers disponibles dans le dossier courant :", os.listdir("."))
+
 
 # Appliquer du style CSS
 st.markdown("""
@@ -39,7 +42,7 @@ else:
     conn = sqlite3.connect(DB_PATH)
 
     # Afficher les tables disponibles
-    st.write("Tables disponibles dans la base :", os.listdir("."))
+    st.write("Tables disponibles dans la base :")
     tables = pd.read_sql("SELECT name FROM sqlite_master WHERE type='table';", conn)
     st.dataframe(tables)
     
