@@ -38,10 +38,10 @@ else:
     DB_PATH =  "Donnees_JOUR_ventes.sqlite"
     conn = sqlite3.connect(DB_PATH)
 
-# Afficher les tables disponibles
-st.write(\"Tables disponibles dans la base :\")
-tables = pd.read_sql(\"SELECT name FROM sqlite_master WHERE type='table';\", conn)
-st.dataframe(tables)
+    # Afficher les tables disponibles
+    st.write("Tables disponibles dans la base :")
+    tables = pd.read_sql(\"SELECT name FROM sqlite_master WHERE type='table';\", conn)
+    st.dataframe(tables)
     
     # --- Titre ---
     st.title("Tableau de bord - Kwilu Briques")
