@@ -23,10 +23,6 @@ for sheet in xl.sheet_names:
     df = xl.parse(sheet)
     df.to_sql(sheet, conn, if_exists="replace", index=False)
 
-# Vérifier les tables créées
-tables = pd.read_sql("SELECT name FROM sqlite_master WHERE type='table';", conn)
-st.write("Tables créées :", tables)
-
 # La base est maintenant prête à être utilisée
 
 # Appliquer du style CSS
