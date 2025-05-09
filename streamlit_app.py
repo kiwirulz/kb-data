@@ -7,9 +7,6 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 import os
 
-# Recréer la base SQLite depuis l'Excel
-st.write("Création de la base SQLite depuis l'Excel...")
-
 # Charger l'Excel
 excel_file = "DONNEES_jour_ventes.xlsx"
 xl = pd.ExcelFile(excel_file)
