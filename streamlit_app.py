@@ -34,6 +34,8 @@ if page == "🏠 Accueil":
     """)
 
 else:
+    import os
+st.write("Fichiers disponibles dans le dossier courant :", os.listdir("."))
     # --- Connexion à la base de données ---
     DB_PATH =  "Donnees_JOUR_ventes.sqlite"
     conn = sqlite3.connect(DB_PATH)
