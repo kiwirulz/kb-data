@@ -59,7 +59,7 @@ if page == "🏠 Accueil":
 else:
     # --- Connexion à la base de données ---
     DB_PATH =  "Donnees_JOUR_ventes.sqlite"
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(sqlite_file)
 
     # Afficher les tables disponibles
     st.write("Tables disponibles dans la base :")
